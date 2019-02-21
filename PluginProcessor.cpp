@@ -37,9 +37,11 @@ WayloChorder3AudioProcessor::WayloChorder3AudioProcessor()
     for (int i = 0; i < 127 ; i++ ){
         playing[i]= 0;
     }
-
-    parameters.state.addChild(makeChordValueTree("Cmaj", {60,64,67}), -1, nullptr);
-    parameters.state.addChild(makeChordValueTree("Cmin", {60,63,67}), -1, nullptr);
+ 
+    ValueTree vt("chords");
+    parameters.state.addChild(vt, -1,nullptr);
+    vt.addChild(makeChordValueTree("Cmaj", {60,64,67}), -1, nullptr);
+    vt.addChild(makeChordValueTree("Cmin", {60,63,67}), -1, nullptr);
     
    
 }
